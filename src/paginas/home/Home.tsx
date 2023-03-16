@@ -10,6 +10,7 @@ import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 import ModalPostagem from '../../components/postagens/moldalPostagem/ModalPostagem';
 
 import { Link } from 'react-router-dom';
+import { TokenState } from '../../store/tokens/tokensReducer';
 
 
 function Home() {

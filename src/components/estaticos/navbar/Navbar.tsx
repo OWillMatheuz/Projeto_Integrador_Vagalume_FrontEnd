@@ -1,39 +1,27 @@
 import React from "react";
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
-import { Box } from '@mui/material';
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom'
-import useLocalStorage from 'react-use-localstorage';
 import './Navbar.css'
-import { useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
-import { addToken } from "../../../store/tokens/actions";
-function Navbar() {
-    let navigate = useNavigate();
+import { Action, addToken } from "../../../store/tokens/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { Box } from "@mui/material";
 
-    function goLogout() {
-        setToken('')
-        alert("Usuário deslogado")
-        navigate('/login')
-    }
-    return (
-        <>
-            <AppBar position="static" className="estilo">
-                <Toolbar  variant="regular">
-                    <Box >
-                        <Link to='/home' className="text-decorator-none">
+function Navbar(){
 
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
       );
         let navigate = useNavigate();
-
+        const dispatch = useDispatch();
+        
         function goLogout(){
             dispatch(addToken(''));
     alert("Usuário deslogado")
     navigate('/login')
 }
-return (
+return(
     <>
         <AppBar position="static"  className="estilo cursor">
             <Toolbar className="cursor" variant="regular">
@@ -48,13 +36,13 @@ return (
                 <Box display="flex" justifyContent="start">
                     <Box mx={3} display="flex" alignItems="center" justifyContent="center">
                         <Typography variant="h6" color="inherit" >
-                            <HomeIcon /> Home
+                             Home
                         </Typography>
 
                     </Box>
                     <Box mx={3} className="cursor">
                         <Typography variant="h6" color="inherit">
-                            <LibraryBooksIcon />Postagens
+                            Postagens
                         </Typography>
                     </Box>
                     <Link to="/temas" className="text-decorator-none">
@@ -121,7 +109,4 @@ return (
 }
 
 export default Navbar;
-function dispatch(arg0: any) {
-    throw new Error("Function not implemented.");
-}
 
