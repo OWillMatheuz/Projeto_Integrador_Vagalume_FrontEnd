@@ -3,6 +3,7 @@ import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom'
 import './Navbar.css'
+<<<<<<< HEAD
 import { TokenState } from "../../../store/tokens/tokensReducer";
 import { Action, addToken } from "../../../store/tokens/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -47,6 +48,23 @@ return(
                     </Box>
                     <Link to="/temas" className="text-decorator-none">
                         <Box mx={3} className='cursor'>
+=======
+function Navbar() {
+    const [token, setToken] = useLocalStorage('token');
+    let navigate = useNavigate();
+
+    function goLogout() {
+        setToken('')
+        alert("Usuário deslogado")
+        navigate('/login')
+    }
+    return (
+        <>
+            <AppBar position="static" className="estilo">
+                <Toolbar  variant="regular">
+                    <Box >
+                        <Link to='/home' className="text-decorator-none">
+>>>>>>> 80191534e4f57d8862a3f833dedd8131f0d45221
                             <Typography variant="h6" color="inherit">
                                 <img src="https://imgur.com/St2ZEFX.png" alt="logo" height="80" />
                             </Typography>
@@ -107,6 +125,8 @@ return(
         </>
     )
 }
-
 export default Navbar;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 80191534e4f57d8862a3f833dedd8131f0d45221
